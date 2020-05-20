@@ -1,7 +1,10 @@
-import _root_.scalafix.sbt.BuildInfo.{scalafixVersion, scala212 => scalafixScala212}
+//import _root_.scalafix.sbt.BuildInfo.{scalafixVersion, scala212 => scalafixScala212}
 import com.lightbend.tools.scalamoduleplugin.ScalaModulePlugin._
 
 import scala.sys.process._
+
+val scalafixVersion = "0.9.15+46-4c23fac1-SNAPSHOT"
+val scalafixScala212 = "2.13.2"
 
 lazy val commonSettings = Seq(
   headerLicense := Some(HeaderLicense.Custom(s"""|Scala (https://www.scala-lang.org)
