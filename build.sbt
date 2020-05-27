@@ -3,7 +3,7 @@ import com.lightbend.tools.scalamoduleplugin.ScalaModulePlugin._
 
 import scala.sys.process._
 
-val scalafixVersion = "0.9.15+46-4c23fac1-SNAPSHOT"
+val scalafixVersion = "0.9.15.2-SNAPSHOT"
 val scalafixScala212 = "2.13.2"
 
 lazy val commonSettings = Seq(
@@ -146,8 +146,10 @@ lazy val `scalafix-rules` = project
   .settings(commonSettings)
   .settings(
     organization := (organization in compat212JVM).value,
-    publishTo := (publishTo in compat212JVM).value,
+    credentials += Credentials("Sonatype Nexus Repository Manager", "127.0.0.1", "admin", "admin"),
+    publishTo := Some("Sonatype Nexus Repository Manager" at "http://127.0.0.1:8081/repository/maven-snapshots"),
     name := "scala-collection-migrations",
+    version := "2.1.6.2-SNAPSHOT",
     scalaVersion := scalafixScala212,
     libraryDependencies += "ch.epfl.scala" %% "scalafix-core" % scalafixVersion
   )
